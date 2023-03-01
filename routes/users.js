@@ -1,15 +1,35 @@
 const express = require("express");
 const router = express.Router();
 
-const users = [{firstName: "Smith"}, {firstName: "Jones"}]
+const users = [{firstName: "Smith"}, {firstName: "Jones"}];
+
+const db = require("../db");
 
 router.get("/", (req, res) => {
-    console.log(req.query.name);
-  res.json({
-    status: 200,
-    message: "Users List",
-    data: users
-  });
+    // console.log(req.query.name);
+  // res.json({
+  //   status: 200,
+  //   message: "Users List",
+  //   data: users
+  // });
+
+  
+
+const sql = "SELECT * FROM clients";
+
+db.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log(result);
+    // res.json({
+    //     status: 200,
+    //     message: "Users List",
+    //     data: result[0].name
+    //   });
+
+    res.render("users/list", {data: result});
+
+});
+
 });
 
 router.get("/new", (req, res) => {
