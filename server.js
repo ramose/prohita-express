@@ -2,9 +2,14 @@ const express = require("express")
 const app = express()
 const port = 3000
 
+const methodOverride = require("method-override")
+
 app.use(express.static("public"))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
+
+/** Handling PUT and DELETE method from html form */
+app.use(methodOverride("_method"))
 
 app.set("view engine", "ejs")
 app.use(logger)

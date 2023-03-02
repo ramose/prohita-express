@@ -30,7 +30,7 @@
               <td><%= data[i].name %></td>
               <td><%= data[i].email1 %></td>
               <td>
-                <form action="/users/<%= i %>" method="delete">
+                <form action="/users/<%= i %>?_method=DELETE" method="post">
                   <input type="submit" value="Delete" class="btn btn-danger show-alert-delete-box">
               </form>
               </td>
