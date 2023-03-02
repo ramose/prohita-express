@@ -17,23 +17,11 @@ router.get("/", (req, res) => {
 });
 
 router.get("/new", (req, res) => {
-    res.render("users/new");
+    userCtrl.newUser(req, res)
 });
 
 router.post("/", (req, res) => {
-    const isValid = true;
-    if (isValid) {
-        users.push({firstName: req.body.firstName});
-        res.redirect(`/users/${users.length}`);
-    } else {
-        res.render("users/new", {firstName: req.body.firstName});
-    }
-
-    //   res.json({
-    //     status: 200,
-    //     message: "Create User",
-    //     first_name: req.body.firstName
-    //   });
+    userCtrl.createUser(req, res)
 });
 
 router
