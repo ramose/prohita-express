@@ -20,6 +20,10 @@ router.get("/new", (req, res) => {
     userCtrl.newUser(req, res)
 });
 
+router.get("/edit/:userId", (req, res) => {
+  userCtrl.viewUser(req, res)
+});
+
 router.post("/", (req, res) => {
     userCtrl.createUser(req, res)
 });
@@ -34,11 +38,13 @@ router
         });
     })
     .put((req, res) => {
-        res.json({
-            status: 200,
-            message: "Update User",
-            user_id: req.params.userId,
-        });
+        // res.json({
+        //     status: 200,
+        //     message: "Update User",
+        //     user_id: req.body,
+        // });
+        console.log(req.body);
+        userCtrl.editUser(req, res)
     })
     .delete((req, res) => {
         // res.json({

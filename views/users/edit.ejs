@@ -11,13 +11,22 @@
     </head>
     <body>
         <header><%- include('../partials/header'); %></header>
-        <p>New User</p>
-        <form action="/users" method="post">
-            <label>Name
+        <p>Edit</p>
+        <form action="/users/<%= data.id %>?_method=PUT" method="post">
+            <label
+                >ID
+                <input
+                    type="hidden"
+                    name="id"
+                    value="<%= locals.data.id %>"
+                />
+            </label>
+            <label
+                >Name
                 <input
                     type="text"
-                    name="email"
-                    value="<%= locals.name %>"
+                    name="name"
+                    value="<%= locals.data.name %>"
                 />
             </label>
             <br/>
@@ -25,7 +34,7 @@
                 <input
                     type="text"
                     name="email1"
-                    value="<%= locals.email1 %>"
+                    value="<%= locals.data.email1 %>"
                 />
             </label>
             <button type="submit">Submit</button>

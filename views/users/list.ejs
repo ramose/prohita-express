@@ -29,6 +29,7 @@
               <td><%= i+1  %></td>
               <td><%= data[i].name %></td>
               <td><%= data[i].email1 %></td>
+              <td><a href="/users/edit/<%= data[i].id %>" class="btn btn-secondary">Edit</a></td>
               <td>
                 <form action="/users/<%= data[i].id %>?_method=DELETE" method="post">
                   <input type="submit" value="Delete" class="btn btn-danger show-alert-delete-box">
@@ -40,6 +41,32 @@
         </tbody>  
       </table>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+<script type="text/javascript">
+  $('.show-alert-delete-box').click(function(event){
+      var form =  $(this).closest("form");
+      var name = $(this).data("name");
+      event.preventDefault();
+      swal({
+          title: "Are you sure you want to delete this record?",
+          text: "If you delete this, it will be gone forever.",
+          icon: "warning",
+          type: "warning",
+          buttons: ["Cancel","Yes!"],
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+      }).then((willDelete) => {
+          if (willDelete) {
+              form.submit();
+          }
+      });
+  });
+</script>
+
     
 
 <footer>
