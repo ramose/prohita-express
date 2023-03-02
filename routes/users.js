@@ -41,11 +41,13 @@ router
         });
     })
     .delete((req, res) => {
-        res.json({
-            status: 200,
-            message: "Delete User",
-            user_id: req.params.userId,
-        });
+        // res.json({
+        //     status: 200,
+        //     message: "Delete User",
+        //     user_id: req.params.userId,
+        // });
+
+        userCtrl.deleteUser(req, res)
     });
 
 router.param("id", (req, res, next, id) => {

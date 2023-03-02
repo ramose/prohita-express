@@ -24,7 +24,8 @@ exports.createUser = (req, res) => {
 }
 
 exports.deleteUser = (req, res) => {
-    const sql = `DELETE FROM clients WHERE clients.id = "${req.body.id}"`;
+    console.log("===========> ", req.params.userId);
+    const sql = `DELETE FROM clients WHERE clients.id = "${req.params.userId}"`;
 
     db.query(sql, function (err, result) {
         if (err) throw err;
