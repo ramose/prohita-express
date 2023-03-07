@@ -11,24 +11,35 @@
     </head>
     <body>
         <header><%- include('../partials/header'); %></header>
-        <p>New User</p>
+        
+        <div class="col-sm-9 p-3">
+            <h3>Create User</h3>
         <form action="/users" method="post">
-            <label>Name
+
+
+            <div class="mb-3">
+                <label for="fc_name" class="form-label">Name</label>
                 <input
                     type="text"
-                    name="email"
+                    class="form-control"
+                    id="fc_name"
+                    name="name"
                     value="<%= locals.name %>"
                 />
-            </label>
-            <br/>
-            <label>Email
+            </div>
+
+            <div class="mb-3">
+                <label for="fc_email1" class="form-label">Email 1</label>
                 <input
-                    type="text"
+                    type="email"
+                    class="form-control"
+                    id="fc_email1"
                     name="email1"
                     value="<%= locals.email1 %>"
                 />
-            </label>
+            </div>
             <button type="submit">Submit</button>
         </form>
+        </div>
     </body>
 </html>
