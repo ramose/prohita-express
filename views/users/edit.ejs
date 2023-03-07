@@ -11,33 +11,47 @@
     </head>
     <body>
         <header><%- include('../partials/header'); %></header>
-        <p>Edit</p>
-        <form action="/users/<%= data.id %>?_method=PUT" method="post">
-            <label
-                >ID
-                <input
-                    type="hidden"
-                    name="id"
-                    value="<%= locals.data.id %>"
-                />
-            </label>
-            <label
-                >Name
-                <input
-                    type="text"
-                    name="name"
-                    value="<%= locals.data.name %>"
-                />
-            </label>
-            <br/>
-            <label>Email
-                <input
-                    type="text"
-                    name="email1"
-                    value="<%= locals.data.email1 %>"
-                />
-            </label>
-            <button type="submit">Submit</button>
-        </form>
+        
+        
+        <div class="col-sm-9 p-3">
+            <h3>Edit</h3>
+            <form action="/users/<%= data.id %>?_method=PUT" method="post">
+                <div class="mb-3">
+                    <label for="fc_id" class="form-label">User ID</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="fc_id"
+                        name="id"
+                        value="<%= locals.data.id %>"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="fc_name" class="form-label">Name</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        id="fc_name"
+                        name="name"
+                        value="<%= locals.data.name %>"
+                    />
+                </div>
+
+                <div class="mb-3">
+                    <label for="fc_email1" class="form-label">Email 1</label>
+                    <input
+                        type="email"
+                        class="form-control"
+                        id="fc_email1"
+                        name="email1"
+                        value="<%= locals.data.email1 %>"
+                    />
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
     </body>
 </html>
