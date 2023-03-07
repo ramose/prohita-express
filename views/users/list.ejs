@@ -12,13 +12,18 @@
       </header>
 
       <div class="container"> 
-        <p>Total: <%= data.length %></p>
+        <div class="row align-items-end">
+          <div class="col">Total: <%= data.length %></div>
+          <div class="col text-end"><a href="" class="btn btn-primary">New</a></div>
+        </div>
+        
       <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
